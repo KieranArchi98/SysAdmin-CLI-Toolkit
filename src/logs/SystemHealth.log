@@ -1,0 +1,10 @@
+$logFile = "C:\Tools\SysAdminToolkit\logs\SystemHealth.log"
+
+try {
+    $result = Get-SystemHealth
+    $result | Out-String | Add-Content $logFile
+    Write-Host "System health recorded to $logFile"
+}
+catch {
+    Write-Error "Failed to log system health: $_"
+}
